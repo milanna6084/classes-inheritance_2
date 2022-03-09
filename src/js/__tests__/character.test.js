@@ -1,11 +1,11 @@
 import Character from '../character/Character';
 import Swordsman from '../character/Swordsman';
 
-describe('constructor', () => {
+describe('constructor Character', () => {
   test('test fails for invalid name', () => {
     try {
-      const a = new Character('l', 'Swordsman');
-      console.log(a);
+      const test = new Character('l', 'Swordsman');
+      console.log(test);
     } catch (e) {
       expect(e.message).toEqual('Invalid name value');
     }
@@ -13,25 +13,25 @@ describe('constructor', () => {
 
   test('test fails for invalid type', () => {
     try {
-      const a = new Character('Potter', 'Wizard');
-      console.log(a);
+      const test = new Character('Potter', 'Wizard');
+      console.log(test);
     } catch (e) {
       expect(e.message).toEqual('Invalid type value');
     }
   });
 
   test('test not fails for valid name and type', () => {
-    const a = new Character('Leon', 'Swordsman');
+    const test = new Character('Leon', 'Swordsman');
 
-    expect(a).toBeDefined();
+    expect(test).toBeDefined();
   });
 });
 
-const testCharacter = new Swordsman('test', 'Swordsman');
+const testCharacter = new Swordsman('test');
 testCharacter.health = 0;
 
 describe('levelUp function', () => {
-  const testLevelUp = new Swordsman('test2', 'Swordsman');
+  const testLevelUp = new Swordsman('test2');
 
   test('health less than equel zero, try catch error', () => {
     try {
@@ -42,7 +42,7 @@ describe('levelUp function', () => {
   });
 
   test('increase level, attack, defence and health ', () => {
-    const result = new Swordsman('test2', 'Swordsman');
+    const result = new Swordsman('test2');
     result.level = 2;
     result.attack = 48;
     result.defence = 12;
@@ -53,7 +53,7 @@ describe('levelUp function', () => {
 });
 
 describe('damaged function', () => {
-  const testDamage = new Swordsman('test2', 'Swordsman');
+  const testDamage = new Swordsman('test2');
   const points = 10;
 
   test('health less than equel zero, try catch error', () => {
@@ -65,7 +65,7 @@ describe('damaged function', () => {
   });
 
   test('health level should be decrease', () => {
-    const result = new Swordsman('test2', 'Swordsman');
+    const result = new Swordsman('test2');
     result.health = 91;
 
     testDamage.damage(points);
